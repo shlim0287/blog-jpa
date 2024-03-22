@@ -1,6 +1,7 @@
 package com.estsoft.blogjpa.domain;
 
 import com.estsoft.blogjpa.domain.dto.ArticleResponse;
+import com.estsoft.blogjpa.domain.dto.ArticleViewResponse;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -49,6 +50,10 @@ public class Article {
                 .title(title)
                 .content(content)
                 .build();
+    }
+
+    public ArticleViewResponse toViewResponse() {
+        return new ArticleViewResponse(id, title, content, createdAt, updatedAt);
     }
 
     public void update(String title,String content){

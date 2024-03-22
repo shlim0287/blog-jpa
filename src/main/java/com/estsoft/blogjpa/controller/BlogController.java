@@ -28,15 +28,15 @@ public class BlogController {
         return ResponseEntity.status(HttpStatus.CREATED).body(article.toResponse());
     }
 
-//    @GetMapping
-//    @ResponseBody
-//    public ResponseEntity<List<ArticleResponse>> showArticle(){
-//        List<Article> articles = blogService.findAll();
-//        List<ArticleResponse> responseList=articles.stream()
-//                .map(ArticleResponse::new)
-//                .toList();
-//        return ResponseEntity.ok().body(responseList);
-//    }
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<List<ArticleResponse>> showArticle(){
+        List<Article> articles = blogService.findAll();
+        List<ArticleResponse> responseList=articles.stream()
+                .map(ArticleResponse::new)
+                .toList();
+        return ResponseEntity.ok().body(responseList);
+    }
 
     @GetMapping("/{id}")
     @ResponseBody
@@ -46,7 +46,7 @@ public class BlogController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable Long id){
+    public ResponseEntity<Void> deleteById(@PathVariable("id") Long id){
         blogService.deleteById(id);
         return ResponseEntity.ok().build();
     }
@@ -58,7 +58,7 @@ public class BlogController {
 //    }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Article> updateTitle(@PathVariable Long id,@RequestBody AddArticleRequest request){
+    public ResponseEntity<Article> updateTitle(@PathVariable("id") Long id,@RequestBody AddArticleRequest request){
         Article article = blogService.updateTitle(id, request);
         return ResponseEntity.status(HttpStatus.OK).body(article);
     }

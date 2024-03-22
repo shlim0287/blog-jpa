@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,7 +50,7 @@ public class BlogService {
         return article;
     }
     @Transactional
-    public Article updateTitle(Long id,AddArticleRequest request){
+    public Article updateTitle(Long id, AddArticleRequest request){
         Article article = findById(id).orElseThrow(()->new IllegalArgumentException("not found"+id));
         blogRepository.updateTitle(id,request.getTitle());
         return article;

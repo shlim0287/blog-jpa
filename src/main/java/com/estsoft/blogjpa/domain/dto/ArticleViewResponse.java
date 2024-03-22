@@ -1,9 +1,16 @@
 package com.estsoft.blogjpa.domain.dto;
 
 import com.estsoft.blogjpa.domain.Article;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ArticleViewResponse {
     private Long id;
     private String title;
@@ -12,24 +19,6 @@ public class ArticleViewResponse {
 
     private LocalDateTime updateAt;
 
-    public ArticleViewResponse() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
 
     public ArticleViewResponse(Article article) {
         this.id = article.getId();
