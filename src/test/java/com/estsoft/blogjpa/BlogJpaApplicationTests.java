@@ -8,6 +8,6 @@ class BlogJpaApplicationTests {
     //
     @Test
     void print(){
-
+        System.out.println("asasdasd");
     }
 }
