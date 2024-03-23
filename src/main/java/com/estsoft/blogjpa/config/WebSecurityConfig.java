@@ -20,7 +20,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/static/**");
     }
 
-    // 특정 HTTP 요청에 대한 웹 기반 보안 구성
+    // 특정 HTTP 요청에 대한 웹 기반 보안 구성.
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(auth ->              // 인증, 인가 설정
