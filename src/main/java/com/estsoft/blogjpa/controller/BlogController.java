@@ -42,6 +42,7 @@ public class BlogController {
     @ResponseBody
     public ResponseEntity<ArticleResponse> findById(@PathVariable Long id){
         Article article = blogService.findById(id).orElseThrow(()->new IllegalArgumentException("잘못된 입력 값"));
+
         return ResponseEntity.ok().body(article.toResponse());
     }
 
